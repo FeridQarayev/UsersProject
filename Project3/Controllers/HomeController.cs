@@ -40,7 +40,7 @@ namespace Project3.Controllers
                 var count = _db.Users.Where(u => u.Email == model.Email).Count();
                 if (count == 0)
                 {
-                    model.Password = model.Password;
+                    model.Password = PswHashing.ConvertToEncrypt(model.Password);
                     _db.Add(model);
                     _db.SaveChanges();
                     return View("Login");
@@ -67,7 +67,7 @@ namespace Project3.Controllers
         {
             if (ModelState.IsValid)
             {
-                var count = _db.Users.Where(u => u.Email == model.Email && u.Password == model.Password).Count();
+                var count = _db.Users.Where(u => u.Email == model.Email && u.Password == PswHashing.ConvertToEncrypt(model.Password)).Count();
                 if (count == 1)
                 {
                     ViewBag.error = "Successful";
