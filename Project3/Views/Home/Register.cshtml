@@ -1,0 +1,35 @@
+﻿<h1>Register</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Register">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label><br />
+                <input asp-for="UserName" class="form-control" /><br />
+                <span asp-validation-for="UserName" class="text-danger" style="color:red"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label><br />
+                <input asp-for="Email" class="form-control" /><br />
+                @if (ViewBag.error == "Email already exists")
+                {
+                    <span style="color:red">@ViewBag.error </span>
+                }
+                <span asp-validation-for="Email" class="text-danger" style="color:red"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label><br />
+                <input asp-for="Password" class="form-control" /><br />
+                <span asp-validation-for="Password" class="text-danger" style="color:red"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Ok" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<div>
+    <a asp-action="Index">Home</a>
+</div>
