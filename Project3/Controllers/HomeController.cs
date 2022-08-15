@@ -57,6 +57,34 @@ namespace Project3.Controllers
             }
         }
 
+        //Login
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+        public IActionResult Login(UserModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var count = _db.Users.Where(u => u.Email == model.Email && u.Password == model.Password).Count();
+                if (count == 1)
+                {
+                    ViewBag.error = "Successful";
+                    return View();
+                }
+                else
+                {
+                    ViewBag.error = "Login failed";
+                    return View();
+                }
+            }
+            else
+            {
+                return View();
+            }
+        }
+
         public IActionResult Error()
         {
             return View();
