@@ -1,1 +1,21 @@
-﻿<h1>Hello</h1>
+﻿<style>
+    body {
+        margin: 0;
+    }
+
+    .box {
+        background-image: url(../img/background/background1.jpg);
+        background-size: 100% 100%;
+        height: 100vh;
+        width: 200vh;
+    }
+</style>
+<div class="box" style=" border:black 3px solid;">
+    <span style="color:white; padding:9px;display:flex; justify-content:flex-end; background-color:khaki; margin-left:1130px; font-size:20px; border:gray 2px solid;">
+        <a asp-action="Register">Register</a>
+    </span>
+    <span style="color:white; padding:9px;display:flex; justify-content:flex-end;  background-color:khaki; margin-left:1135px; font-size:20px; border:gray 2px solid;">
+        <a asp-action="Login">Login</a>
+    </span>
+    <h1 style="color:white;display:flex; justify-content:center; align-items:center; font-size:200px">Welcome</h1>
+</div>
