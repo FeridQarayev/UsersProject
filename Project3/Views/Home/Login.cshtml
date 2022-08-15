@@ -1,21 +1,13 @@
-﻿<h1>Register</h1>
+﻿<h1>Login</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Register">
+        <form asp-action="Login">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="UserName" class="control-label"></label><br />
-                <input asp-for="UserName" class="form-control" /><br />
-                <span asp-validation-for="UserName" class="text-danger" style="color:red"></span>
-            </div>
+            <input asp-for="UserName" class="form-control" value="Login" style="display:none" /><br />
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label><br />
                 <input asp-for="Email" class="form-control" /><br />
-                @if (ViewBag.error == "Email already exists")
-                {
-                    <span style="color:red">@ViewBag.error </span>
-                }
                 <span asp-validation-for="Email" class="text-danger" style="color:red"></span>
             </div>
             <div class="form-group">
@@ -26,13 +18,20 @@
             <div class="form-group">
                 <input type="submit" value="Ok" class="btn btn-primary" />
             </div>
+            @if (ViewBag.error == "Login failed")
+            {
+                <br />
+                <span style="color:red">@ViewBag.error </span>
+            }
+            @if (ViewBag.error == "Successful")
+            {
+                <br />
+                <h1 style="color:green">@ViewBag.error </h1>
+            }
         </form>
     </div>
 </div>
 <hr />
 <div>
-    <a asp-action="Index">Home</a>
-</div>
-<div>
-    <a asp-action="Login">Login</a>
+    <a asp-action="Register">Register</a> <a asp-action="Index">Home</a>
 </div>
